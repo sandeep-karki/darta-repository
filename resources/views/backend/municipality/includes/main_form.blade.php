@@ -6,24 +6,17 @@
 @endif
 
 <div class="form-group row mb-3">
-    {!! Form::label('province_id', 'प्रदेश *', ['class' => 'col-3 col-form-label']) !!}
-    <div class="col-9">
-    {!! Form::select('province_id',$provinces, null, ['class' => "form-control", 'id' => 'title', 'placeholder' => 'प्रदेश']) !!}
-    @include('error.single_field_validation_message',['fieldname' => 'province_id'])
-    </div>
-</div>
-<div class="form-group row mb-3">
     {!! Form::label('district_id', 'जिल्ला *', ['class' => 'col-3 col-form-label']) !!}
     <div class="col-9">
-    {!! Form::select('district_id',$districts, null, ['class' => "form-control", 'id' => 'title', 'placeholder' => 'जिल्ला']) !!}
+    {!! Form::select('district_id',$districts, null, ['class' => "form-control", 'id' => 'district_id', 'placeholder' => 'जिल्ला']) !!}
     @include('error.single_field_validation_message',['fieldname' => 'district_id'])
     </div>
 </div>
 <div class="form-group row mb-3">
-    {!! Form::label('title', 'municipality *', ['class' => 'col-3 col-form-label']) !!}
+    {!! Form::label('name_np', 'municipality *', ['class' => 'col-3 col-form-label']) !!}
     <div class="col-9">
-    {!! Form::text('title', null, ['class' => "form-control", 'id' => 'title', 'placeholder' => 'municipality']) !!}
-    @include('error.single_field_validation_message',['fieldname' => 'title'])
+    {!! Form::text('name_np', null, ['class' => "form-control", 'id' => 'name_np', 'placeholder' => 'municipality']) !!}
+    @include('error.single_field_validation_message',['fieldname' => 'name_np'])
     </div>
 </div>
 

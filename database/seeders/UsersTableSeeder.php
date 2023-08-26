@@ -18,8 +18,8 @@ class UsersTableSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => 'User1',
-            'email' => 'user1@email.com',
-            'password' => bcrypt('password'),
+            'email' => 'admin@email.com',
+            'password' => bcrypt('admin123'),
         ]);
     }
 }

@@ -36,7 +36,8 @@ class MunicipalityController extends Controller
     {
         try{
             $this->model->create([
-                'municipality' => $request['municipality'],
+                'district_id' => $request['district_id'],
+                'name_np' => $request['name_np'],
             ]);
             toast('Municipality Created Successfully','success','top-right');
         }
@@ -46,21 +47,19 @@ class MunicipalityController extends Controller
         return redirect()->route($this->base_route . 'index');
     }
 
-    public function show($id)
-    {
-
-    }
-
     public function edit($id)
     {
         $this->page_title  = 'Edit Municipality';
+
+        $provinces = Province::pluck('name_np', 'id');
+        $districts = District::pluck('name_np', 'id');
 
         if (!$data['row'] = $this->model->find($id)){
             toast('Municipality Not Found !','error','top-right');
             return redirect()->route($this->base_route . 'index');
         }
 
-        return view($this->view_path . 'edit',compact('data'));
+        return view($this->view_path . 'edit',compact('provinces', 'districts', 'data'));
     }
 
     public function update(Request $request,$id)
@@ -68,7 +67,8 @@ class MunicipalityController extends Controller
         try{
             $row = $this->model->findorFail($id);
             $row->update([
-                'municipality' => $request['municipality'],
+                'district_id' => $request['district_id'],
+                'name_np' => $request['name_np'],
             ]);
             toast('Municipality Updated Successfully.','success','top-right');
         }

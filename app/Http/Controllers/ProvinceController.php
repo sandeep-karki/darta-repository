@@ -30,10 +30,9 @@ class ProvinceController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
         try{
             $this->model->create([
-                'name_np' => $request['province'],
+                'name_np' => $request['name_np'],
             ]);
             toast('province Created Successfully','success','top-right');
         }
@@ -43,17 +42,12 @@ class ProvinceController extends Controller
         return redirect()->route($this->base_route . 'index');
     }
 
-    public function show($id)
-    {
-
-    }
-
     public function edit($id)
     {
         $this->page_title  = 'Edit Province';
 
         if (!$data['row'] = $this->model->find($id)){
-            toast('Test Not Found !','error','top-right');
+            toast('Province Not Found !','error','top-right');
             return redirect()->route($this->base_route . 'index');
         }
 
@@ -65,12 +59,12 @@ class ProvinceController extends Controller
         try{
             $row = $this->model->findorFail($id);
             $row->update([
-                'province' => $request['province'],
+                'name_np' => $request['name_np'],
             ]);
-            toast('Test Updated Successfully.','success','top-right');
+            toast('Province Updated Successfully.','success','top-right');
         }
         catch (\Exception $e) {
-            toast('Test Update Failed !','error','top-right');
+            toast('Province Update Failed !','error','top-right');
         }
         return redirect()->route($this->base_route . 'index');
     }
@@ -80,9 +74,9 @@ class ProvinceController extends Controller
         $row = $this->model->findorFail($id);
         try {
             $row->delete();
-            toast('Test Deleted Successfully.','success','top-right');
+            toast('Province Deleted Successfully.','success','top-right');
         } catch (\Exception $e) {
-            toast('Test Delete Failed !','error','top-right');
+            toast('Province Delete Failed !','error','top-right');
         }
         return redirect()->route($this->base_route . 'index');
     }

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('municipalities', function (Blueprint $table) {
             $table->id();
             $table->foreignid('district_id')->constrained()->onUpdate('cascade');
-            $table->string('name_en');
-            $table->string('slug');
-            $table->string('name_np')->nullable();
+            $table->string('name_np');
+            $table->string('name_en')->nullable();
+            $table->string('slug')->nullable();
             $table->timestamps();
         });
     }

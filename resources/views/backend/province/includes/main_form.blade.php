@@ -8,8 +8,8 @@
 <div class="form-group row mb-3">
     {!! Form::label('province', 'प्रदेश *', ['class' => 'col-3 col-form-label']) !!}
     <div class="col-9">
-    {!! Form::text('province', null, ['class' => "form-control", 'id' => 'province', 'placeholder' => 'प्रदेश ...']) !!}
-    @include('error.single_field_validation_message',['fieldname' => 'province'])
+    {!! Form::text('name_np', null, ['class' => "form-control", 'id' => 'name_np', 'placeholder' => 'प्रदेश ...']) !!}
+    @include('error.single_field_validation_message',['fieldname' => 'name_np'])
     </div>
 </div>
 

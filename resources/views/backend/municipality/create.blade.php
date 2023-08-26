@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'Create Test')
+@section('title', 'Create Municipality')
 @section('content')
     <div class="container-fluid">
         <!-- start page title -->

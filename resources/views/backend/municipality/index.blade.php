@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title','Index Test')
+@section('title','Index Municipality')
 
 @section('css')
     <link href="{{ asset('backend/assets/libs/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
@@ -49,9 +49,8 @@
                                 <td>{{ $row->district->province->name_np }}</td>
                                 <td>{{ $row->created_at->format('Y-m-d')  }}</td>
                                 <td class="action_group">
-                                    <a class="btn  btn-success mr-right-5" href="{{ route('backend.test.show', $row->id) }}" title="View Details"><span class="mdi mdi-eye"></span></a>
-                                    <a class="btn  btn-warning mr-right-5 btn-green" href="{{ route('backend.test.edit', $row->id) }}" title="Edit"><span class="mdi mdi-square-edit-outline"></span></a>
-                                    {!! Form::open(['route' => ['backend.test.destroy', $row->id], 'class' => 'form-inline','method' => 'delete']) !!}
+                                    <a class="btn  btn-warning mr-right-5 btn-green" href="{{ route('backend.municipality.edit', $row->id) }}" title="Edit"><span class="mdi mdi-square-edit-outline"></span></a>
+                                    {!! Form::open(['route' => ['backend.municipality.destroy', $row->id], 'class' => 'form-inline','method' => 'delete']) !!}
                                         <button type="button" class="btn btn-danger trash-bcolor delete-confirm" title="Delete"><span class="fas fa-trash"></span></button>
                                     {!! Form::close() !!}
                                 </td>

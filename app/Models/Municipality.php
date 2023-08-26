@@ -10,6 +10,8 @@ class Municipality extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name_en', 'slug' ,'name_np' , 'district_id'];
+
     public function district(){
         return $this->belongsTo(District::class);
     }
