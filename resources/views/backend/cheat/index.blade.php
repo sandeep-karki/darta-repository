@@ -43,7 +43,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $row->cheat_medium }}</td>
-                                <td>{{ $row->created_at->format('Y-m-d')  }}</td>
+                                <td>{{ $row->created_at?->format('Y-m-d')  }}</td>
                                 <td class="action_group">
                                     <a class="btn  btn-success mr-right-5" href="{{ route('backend.test.show', $row->id) }}" title="View Details"><span class="mdi mdi-eye"></span></a>
                                     <a class="btn  btn-warning mr-right-5 btn-green" href="{{ route('backend.test.edit', $row->id) }}" title="Edit"><span class="mdi mdi-square-edit-outline"></span></a>

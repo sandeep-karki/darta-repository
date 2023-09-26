@@ -31,12 +31,4 @@ class BaseModel extends Model
         return $query->where('status', 1);
     }
 
-    // public static function boot(){
-    //     parent::boot();
-
-    //     static::saving(function ($model){
-    //         $model->exists ? $model->updated_by = auth()->id() : $model->created_by = auth()->id();
-    //     });
-    // }
-
 }

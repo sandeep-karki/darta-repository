@@ -58,6 +58,10 @@ Route::middleware(['web','auth'])->prefix('backend/')->name('backend.')->group(f
 
     Route::resource('record', RecordController::class)->names('record');
 
+    Route::post('get-districts',[RecordController::class, 'getDistricts'])->name('get-districts');
+    Route::post('get-municipalities',[RecordController::class, 'getMunicipalities'])->name('get-municipalities');
+
+
 });
 
 

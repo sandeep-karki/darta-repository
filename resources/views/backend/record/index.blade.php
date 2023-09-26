@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title','Index Test')
+@section('title','Record List')
 
 @section('css')
     <link href="{{ asset('backend/assets/libs/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
@@ -26,15 +26,21 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="header-title">Province List
-                        <a href="{{route('backend.province.create')}}" class="btn btn-success custom_btn_cl m-left-20 btn-green"><i class="fas fa-pencil-alt text-light mr-2"></i>Create</a>
+                        <a href="{{route('backend.record.create')}}" class="btn btn-success custom_btn_cl m-left-20 btn-green"><i class="fas fa-pencil-alt text-light mr-2"></i>Create</a>
                     </h4>
                     <hr class="custom_hr">
                     <table id="dataTable" class="table table-striped dt-responsive nowrap w-100 dataTable">
                         <thead>
                         <tr>
                             <th>S.N.</th>
-                            <th>Province</th>
-                            <th>Created Date</th>
+                            <th>register_no</th>
+                            <th>register_date</th>
+                            <th>applicant</th>
+                            <th>age</th>
+                            <th>applicant_contact</th>
+                            <th>applicant_gender</th>
+                            <th>total_scam_amount</th>
+                            <th>Register Date</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -42,21 +48,17 @@
                         @foreach($data['rows'] as $row)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $row->title }}</td>
-                                <td>{{ $row->created_at->format('Y-m-d')  }}</td>
-                                <td>
-                                    @if($row->status == 'publish')
-                                        <span class="text text-success">Publish</span>
-                                    @else
-                                        <span class="text text-danger">Unpublish</span>
-                                    @endif
-                                </td>
+                                <td>{{ $row->register_no }}</td>
+                                <td>{{ $row->register_date }}</td>
+                                <td>{{ $row->applicant }}</td>
+                                <td>{{ $row->age }}</td>
+                                <td>{{ $row->applicant_contact }}</td>
+                                <td>{{ $row->applicant_gender }}</td>
+                                <td>{{ $row->total_scam_amount }}</td>
+                                <td>{{ $row->register_date }}</td>
                                 <td class="action_group">
-                                    <a class="btn  btn-success mr-right-5" href="{{ route('backend.test.show', $row->id) }}" title="View Details"><span class="mdi mdi-eye"></span></a>
-                                    <a class="btn  btn-warning mr-right-5 btn-green" href="{{ route('backend.test.edit', $row->id) }}" title="Edit"><span class="mdi mdi-square-edit-outline"></span></a>
-                                    {!! Form::open(['route' => ['backend.test.destroy', $row->id], 'class' => 'form-inline','method' => 'delete']) !!}
-                                        <button type="button" class="btn btn-danger trash-bcolor delete-confirm" title="Delete"><span class="fas fa-trash"></span></button>
-                                    {!! Form::close() !!}
+                                    <a class="btn  btn-success mr-right-5" href="{{ route('backend.record.show', $row->id) }}" title="View Details"><span class="mdi mdi-eye"></span></a>
+                                    <a class="btn  btn-warning mr-right-5 btn-green" href="{{ route('backend.record.edit', $row->id) }}" title="Edit"><span class="mdi mdi-square-edit-outline"></span></a>
                                 </td>
                             </tr>
                         @endforeach
