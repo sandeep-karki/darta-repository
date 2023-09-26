@@ -5,6 +5,7 @@
   {!! Form::hidden('id', null) !!}
 @endif
 
+
 <!-- <div class="form-group row mb-3">
     {!! Form::label('title', 'victim type *', ['class' => 'col-3 col-form-label']) !!}
     <div class="col-9">
@@ -21,28 +22,27 @@
 </div>
  -->
 
- <div class="container">
+<div class="container">
    <h2>बुक रेकर्ड</h2>
    <p>Click on the button to toggle between showing and hiding content.</p>
    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#nibedak" style="margin-bottom: 14px;width:200px;background-color: #5E3791;">निबेदक <i class="fas fa-plus"></i></button>
    <div id="nibedak" class="collapse">
      <form>
        <div class="form-group">
-         <label for="exampleInputEmail1">निबेदकको नाम</label>
-         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="पुरा नाम ...">
-         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <label for="applicant">निबेदकको नाम</label>
+            {!! Form::text('applicant', null, ['class' => "form-control", 'id' => 'applicant', 'placeholder' => 'पुरा नाम ...']) !!}
        </div>
        <div class="form-group">
-         <label for="exampleInputPassword1">निबेदकको शैक्षिक योग्यता</label>
-         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="शैक्षिक योग्यता ...">
-       </div>       
+         <label for="education_id ">निबेदकको शैक्षिक योग्यता</label>
+           {!! Form::text('education_id', null, ['class' => "form-control", 'id' => 'education_id', 'placeholder' => 'शैक्षिक योग्यता ...']) !!}
+       </div>
        <div class="form-group">
-         <label for="exampleInputPassword1">निबेदकको उमेर</label>
-         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="उमेर ...">
-       </div>      
+         <label for="age">निबेदकको उमेर</label>
+           {!! Form::text('age', null, ['class' => "form-control", 'id' => 'age', 'placeholder' => 'उमेर ...']) !!}
+       </div>
        <div class="form-group">
-         <label for="exampleInputPassword1">निबेदकको सम्पर्क नम्बर</label>
-         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="सम्पर्क नम्बर ...">
+         <label for="applicant_contact">निबेदकको सम्पर्क नम्बर</label>
+           {!! Form::text('applicant_contact', null, ['class' => "form-control", 'id' => 'applicant_contact', 'placeholder' => 'सम्पर्क नम्बर ...']) !!}
        </div>
        <div class="form-group">
         <div class="form-check form-check-inline">
@@ -64,20 +64,20 @@
    <div id="permaplace" class="collapse">
      <form>
        <div class="form-group">
-         <label for="exampleInputEmail1">स्थाई प्रदेश</label>
-         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="प्रदेश ...">
+         <label for="permanent_province">स्थाई प्रदेश</label>
+           {!! Form::select('permanent_province',$data['provinces'], null, ['class' => "form-control", 'id' => 'permanent_province', 'placeholder' => 'प्रदेश ...']) !!}
        </div>
        <div class="form-group">
-         <label for="exampleInputPassword1">स्थाई जिल्ला</label>
-         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="जिल्ला ...">
-       </div>       
+         <label for="permanent_district">स्थाई जिल्ला</label>
+           {!! Form::select('permanent_district',$data['districts'], null, ['class' => "form-control", 'id' => 'permanent_district', 'placeholder' => 'जिल्ला ...']) !!}
+       </div>
        <div class="form-group">
-         <label for="exampleInputPassword1">स्थाई स्थानिय तह</label>
-         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="स्थानिय तह ...">
-       </div>      
+         <label for="permanent_municipality">स्थाई स्थानिय तह</label>
+           {!! Form::select('permanent_municipality',$data['municipalities'], null, ['class' => "form-control", 'id' => 'permanent_municipality', 'placeholder' => 'स्थानिय तह ...']) !!}
+       </div>
        <div class="form-group">
-         <label for="exampleInputPassword1">स्थाई वडा नं</label>
-         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="वडा नं ...">
+         <label for="permanent_ward_no">स्थाई वडा नं</label>
+           {!! Form::number('permanent_ward_no', null, ['class' => "form-control", 'id' => 'permanent_ward_no', 'placeholder' => 'वडा नं ....']) !!}
        </div>
      </form>
    </div>
@@ -88,22 +88,22 @@
    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#tempplace" style="margin-bottom: 14px;width: 200px;background-color: #5E3791;">अस्थाई ठेगाना <i class="fas fa-plus"></i></button>
    <div id="tempplace" class="collapse">
      <form>
-       <div class="form-group">
-         <label for="exampleInputEmail1">अस्थाई प्रदेश</label>
-         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="प्रदेश ...">
-       </div>
-       <div class="form-group">
-         <label for="exampleInputPassword1">अस्थाई जिल्ला</label>
-         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="जिल्ला ...">
-       </div>       
-       <div class="form-group">
-         <label for="exampleInputPassword1">अस्थाई स्थानिय तह</label>
-         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="स्थानिय तह ...">
-       </div>      
-       <div class="form-group">
-         <label for="exampleInputPassword1">अस्थाई वडा नं</label>
-         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="वडा नं ...">
-       </div>
+         <div class="form-group">
+             <label for="temporary_province">अस्थाई प्रदेश</label>
+             {!! Form::select('temporary_province',$data['provinces'], null, ['class' => "form-control", 'id' => 'temporary_province', 'placeholder' => 'प्रदेश ...']) !!}
+         </div>
+         <div class="form-group">
+             <label for="temporary_district">अस्थाई जिल्ला</label>
+             {!! Form::select('temporary_district',$data['districts'], null, ['class' => "form-control", 'id' => 'temporary_district', 'placeholder' => 'जिल्ला ...']) !!}
+         </div>
+         <div class="form-group">
+             <label for="temporary_municipality">अस्थाई स्थानिय तह</label>
+             {!! Form::select('temporary_municipality',$data['municipalities'], null, ['class' => "form-control", 'id' => 'temporary_municipality', 'placeholder' => 'स्थानिय तह ...']) !!}
+         </div>
+         <div class="form-group">
+             <label for="temporary_ward_no">अस्थाई वडा नं</label>
+             {!! Form::number('temporary_ward_no', null, ['class' => "form-control", 'id' => 'temporary_ward_no', 'placeholder' => 'वडा नं ....']) !!}
+         </div>
      </form>
    </div>
 
@@ -115,12 +115,12 @@
      <form>
        <div class="form-group">
          <label for="exampleInputEmail1">अपराधको प्रकार</label>
-        {!! Form::select('crime_id',$crimes, null, ['class' => "form-control", 'id' => 'crime_id', 'placeholder' => 'प्रकार']) !!}
+        {!! Form::select('crime_id',$data['crimes'], null, ['class' => "form-control", 'id' => 'crime_id', 'placeholder' => 'प्रकार']) !!}
        </div>
        <div class="form-group">
          <label for="exampleInputPassword1">अपराधको/ठगीको माध्यम</label>
          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="माध्यम ...">
-       </div>       
+       </div>
      </form>
    </div>
 
@@ -141,12 +141,13 @@
         <div class="form-group">
          <label for="exampleInputPassword1">खाता नम्बर</label>
          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="खाता नम्बर ...">
-       </div>           
+       </div>
        <div class="form-group">
          <label for="exampleInputPassword1">बिगो रकम</label>
          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="बिगो रकम ...">
-       </div>       
+       </div>
      </form>
    </div>
  </div>
+
 {!! Form::close() !!}

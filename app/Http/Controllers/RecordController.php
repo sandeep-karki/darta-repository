@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Victim;
 use App\Models\Crime;
-
+use App\Models\District;
+use App\Models\Municipality;
+use App\Models\Province;
+use App\Models\Record;
 use Illuminate\Http\Request;
 
-class VictimController extends Controller
+class RecordController extends Controller
 {
-    protected $view_path = 'backend.victim.';
-    protected $base_route = 'backend.victim.';
+    protected $view_path = 'backend.record.';
+    protected $base_route = 'backend.record.';
     protected $page_title, $model;
 
-    public function __construct(victim $victim)
+    public function __construct(Record $record)
     {
-        $this->model = $victim;
+        $this->model = $record;
     }
 
     public function index()
@@ -27,9 +29,13 @@ class VictimController extends Controller
 
     public function create()
     {
-        $crimes = Crime::pluck('crime_type', 'id');
+        $data = [];
+        $data['crimes'] = Crime::pluck('crime_type', 'id');
+        $data['provinces'] = Province::pluck('name_np', 'id');
+        $data['districts'] = District::pluck('name_np', 'id');
+        $data['municipalities'] = Municipality::pluck('name_np', 'id');
 
-        return view($this->view_path . 'create',compact('crimes'));
+        return view($this->view_path . 'create',compact('data'));
     }
 
     public function store(Request $request)

@@ -1,4 +1,4 @@
-$(document).ready(function() {7
+$(document).ready(function() {
     // onfirmation before delete
     $(document).on("click",".delete-confirm",function(e) {
         e.preventDefault();

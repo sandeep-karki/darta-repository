@@ -40,7 +40,7 @@
                             <a href="{{  route('backend.bank.index')  }}">बैंकको सुची</a>
                         </li>
                     </ul>
-                </li>   
+                </li>
 
                 <li>
                     <a href="javascript: void(0);"><i class="fas fa-registered"></i><span>प्रदेश</span><span class="menu-arrow"></span></a>
@@ -88,8 +88,8 @@
                             <a href="{{  route('backend.crime.index')  }}">अपराधको प्रकारका सूची</a>
                         </li>
                     </ul>
-                </li>   
-                
+                </li>
+
                 <li>
                     <a href="javascript: void(0);"><i class="fa fa-registered"></i><span>ठगीको माध्यम</span><span class="menu-arrow"></span></a>
                     <ul class="nav-second-level" aria-expanded="false">
@@ -106,10 +106,10 @@
                     <a href="javascript: void(0);"><i class="fa fa-registered"></i><span>दर्ता गर्नुहोस</span><span class="menu-arrow"></span></a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li>
-                            <a href="{{ route('backend.victim.create') }}">नयाँ रच्नुहोस</a>
+                            <a href="{{ route('backend.record.create') }}">नयाँ रच्नुहोस</a>
                         </li>
                         <li>
-                            <a href="{{  route('backend.victim.index')  }}">दर्ता सूची</a>
+                            <a href="{{  route('backend.record.index')  }}">दर्ता सूची</a>
                         </li>
                     </ul>
                 </li>

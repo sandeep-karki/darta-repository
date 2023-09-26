@@ -7,7 +7,7 @@ use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\MunicipalityController;
 use App\Http\Controllers\CrimeController;
-use App\Http\Controllers\VictimController;
+use App\Http\Controllers\RecordController;
 use App\Http\Controllers\CheatController;
 
 use Illuminate\Support\Facades\Route;
@@ -54,9 +54,9 @@ Route::middleware(['web','auth'])->prefix('backend/')->name('backend.')->group(f
 
     Route::resource('crime', CrimeController::class)->names('crime');
 
-    Route::resource('victim', VictimController::class)->names('victim');
-
     Route::resource('cheat', CheatController::class)->names('cheat');
+
+    Route::resource('record', RecordController::class)->names('record');
 
 });
 
