@@ -45,9 +45,7 @@ class RecordController extends Controller
 
     public function store(RecordRequest $request)
     {
-
         $request['register_date'] = now()->format('Y-m-d');
-        $this->model->create($request->all());
         try{
             $this->model->create($request->all());
             toast('Record Created Successfully','success','top-right');
@@ -55,7 +53,7 @@ class RecordController extends Controller
         catch (\Exception $e) {
             toast('Record Creation Failed !','error','top-right');
         }
-        return redirect()->route($this->base_route . 'index');
+        return response()->json(['url' => route($this->base_route . 'index')]);
     }
 
     public function show($id)
